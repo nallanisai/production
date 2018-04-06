@@ -1,8 +1,6 @@
 node /c7/ {
-  include sshd
-  include tools
+  include ssh
 }
 node /rhel7/ {
-  include sshd
-  include tools
+  include ssh
 }
