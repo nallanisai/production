@@ -1,0 +1,34 @@
+#NetBrain elasticsearch config file
+
+ESSystemUser          elasticsearch
+ESSystemGroup         elasticsearch
+InstallPath        		/netbrains/elasticsearch/
+ServiceName        		elasticsearch
+ClusterName        		elastic-search-cluster
+NodeName           		node1
+
+#The Username or Password should not contain: {}[]:",'|<>@&^%\ or a space. The length cannot exceed 64 characters.
+User               		admin
+Password           		admin
+
+DataPath           		/netbrains/elasticsearch/data
+LogPath            		/opt/elasticsearch/logs
+BindIp             		<%= $facts['ipaddress'] %>
+Port               		9200
+
+#The maximum system resources that can be occupied by elasticsearch: CPUlimit(%), MemoryLimit(GB)
+CPULimit           		35%
+MemoryLimit        		4
+
+#single node or cluster
+SingleNode         		yes
+#Write all cluster members. 
+ClusterMembers                  10.10.2.34 10.10.2.35 10.10.2.36
+MasterOnlyNode                  no
+
+
+
+
+
+
+

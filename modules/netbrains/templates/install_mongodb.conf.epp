@@ -1,0 +1,30 @@
+#NetBrain Database configuration file
+#Note: other than the database username and password, other entries 
+#can only contain letters and numbers, and should start with a letter.
+DBServiceName      mongodnetbrain
+DBSystemUser       netbrain
+DBSystemGroup      netbrain
+ConfPath           /opt/mongodb
+DataPath           /opt/mongodb/data
+LogPath            /opt/mongodb/log
+BindIp             <%= $facts['ipaddress'] %>
+DBPort             27017
+ReplicaSetName     rsnetbrain
+RequireSSL         no
+CertPath           /etc/ssl/cert.pem
+KeyPath            /etc/ssl/key.pem
+#either dbuser or dbpassword was set to empty,mongodbconfig.sh will not add user and password
+#The DBUser or DBPassword should not contain: {}[]:",'|<>@&^%\ or a space.
+#The length of DBUsername or DBPassword should not be more than 64 characters.
+DBUser             mongodb
+DBPassword         mongodb
+
+#CGroups config
+CPULimit           55%
+MemoryLimit        55%
+
+#single node or multi-node replicaset 
+SingleNode         yes
+
+#write all odd replicaset members,the first will be primary and the last will be arbiter, weight from 1000, 970, 940 ......
+#ReplicaSetMembers  10.10.3.142:27017 10.10.3.143:27017  10.10.3.144:27017   10.10.3.145:27017    10.10.3.146:27017
