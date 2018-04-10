@@ -1,7 +1,7 @@
-# Class: ssh
+# Class: tree
 # ===========================
 #
-# Full description of class ssh here.
+# Full description of class tree here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'ssh':
+#    class { 'tree':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,10 +42,7 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class ssh {
-  class { 'ssh::params': } ->
-  class { 'ssh::install': } 
-
-#  class { 'ssh::service': }
+class tree {
+  class { 'tree::install': }
 
 }
